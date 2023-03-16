@@ -49,12 +49,17 @@ def login():
         hashpassword = hashlib.md5((jsonBody['password']+os.getenv("SALT_PASSWORD")).encode())
         data = requestMapping.Login(jsonBody)
         result = Checker(requestStruct.Login(),soft = True).validate(data)
-        user = db.select(f"select id_user,role,username from tbl_user where username = '{result['userName']}' and password = '{hashpassword.hexdigest()}' ")
+        user = db.select(f"select id_user,role,username,email,name,address,city,phone_number from tbl_user where username = '{result['userName']}' and password = '{hashpassword.hexdigest()}' ")
         for i in user:
             userAuth = {
                 'id':i[0],
                 'role': i[1],
-                'userName': i[2]
+                'userName': i[2],
+                'email': i[3],
+                'name': i[4],
+                'address': i[5],
+                'city': i[6],
+                'phoneNumber': i[7]
             }
         if user:
             access_token = create_access_token(identity=userAuth,fresh=True) 
