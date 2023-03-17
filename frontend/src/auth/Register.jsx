@@ -23,7 +23,7 @@ function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://192.168.43.61:5000/auth/register/user", userData)
+      .post("http://192.168.1.71:5000/auth/register/user", userData)
       .then((response) => {
         console.log(response.data);
         navigate("/");
@@ -134,7 +134,7 @@ function Register() {
                     />
                   </div>
 
-                  <div className="form-group">
+                  <div className="form-group mb-3">
                     <label htmlFor="city">City:</label>
                     <input
                       type="text"
@@ -147,7 +147,7 @@ function Register() {
                       className="form-control"
                     />
                   </div>
-                  <div className="form-group mb-3">
+                  <div className="form-group">
                     <label htmlFor="address">Address:</label>
                     <textarea
                       id="address"
