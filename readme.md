@@ -31,3 +31,10 @@
     4.  App.jsx
         - import dan pasang Home
         - rubah route register
+
+## Logout
+
+    Todo:
+
+    1.  cmponents/Navbar.jsx
+        - pasang handleLogout

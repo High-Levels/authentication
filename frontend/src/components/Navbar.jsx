@@ -16,6 +16,20 @@ const Navbar = () => {
       setIsLoggedIn(false)
     }
   }, [])
+
+  const handleLogout = (e) => {
+    e.preventDefault()
+    setUser(null)
+    setIsLoggedIn(false)
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    localStorage.removeItem('email')
+    localStorage.removeItem('gender')
+    localStorage.removeItem('address')
+    localStorage.removeItem('city')
+    navigate('/')
+    setUser(null)
+  }
   return (
     <div>
       <nav className='navbar navbar-expand-lg bg-dark'>
@@ -84,7 +98,11 @@ const Navbar = () => {
                     </a>
                     <ul className='dropdown-menu'>
                       <li>
-                        <a className='dropdown-item text-center' href='#'>
+                        <a
+                          className='dropdown-item text-center'
+                          type='button'
+                          onClick={handleLogout}
+                        >
                           Logout
                         </a>
                       </li>
