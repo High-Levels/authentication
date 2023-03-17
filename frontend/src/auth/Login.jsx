@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import { login } from '../services/Auth'
@@ -19,11 +19,18 @@ const Login = () => {
       localStorage.setItem('user', JSON.stringify(user.username))
       setUser(user)
       alert('Login berhasil!')
-      navigate('/profile')
+      navigate('/')
     } catch {
       console.log(err)
     }
   }
+
+  // handle ketika user sudah login tidak bisa masuk kehalaman login
+  useEffect(() => {
+    if (localStorage.getItem('user')) {
+      navigate('/')
+    }
+  }, [navigate])
 
   return (
     <div>
