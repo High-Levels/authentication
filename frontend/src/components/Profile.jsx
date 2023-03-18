@@ -2,8 +2,11 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from './Navbar'
+import defaultImage from '../assets/images/profile-default.png'
 
-const Dashboard = () => {
+const Profile = () => {
+  // pasang deault endpoint
+  const API_URL = 'http://localhost:5000'
   // hooks profile
   const [profile, setProfile] = useState({})
   const navigate = useNavigate()
@@ -13,7 +16,7 @@ const Dashboard = () => {
     // pasang token yang login
     const token = localStorage.getItem('token')
     axios
-      .get('http://localhost:5000/profile', {
+      .get(API_URL + '/profile', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -32,11 +35,20 @@ const Dashboard = () => {
         <div className='row'>
           <div className='col-md-3'>
             <div className='card'>
-              <img
-                src={profile.picture}
-                className='card-img-top'
-                alt='Profile Picture'
-              />
+              {/* buat kondisi jika gambar ada dan tidak ada pda database */}
+              {profile.picture ? (
+                <img
+                  src={`${API_URL}/static/uploads/users/${profile.picture}`}
+                  className='card-img-top'
+                  alt='Profile Picture'
+                />
+              ) : (
+                <img
+                  src={defaultImage}
+                  className='card-img-top'
+                  alt='Profile Picture'
+                />
+              )}
               <div className='card-body'>
                 <h5 className='card-title'>{profile.name}</h5>
                 <p className='card-text'>{profile.email}</p>
@@ -88,4 +100,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Profile

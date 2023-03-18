@@ -51,3 +51,13 @@
         - import  dan pasang useNavigate()
     3.  services/Auth.jsx
         - menyederhanakan data yang tanpil pada localstorage()
+
+## Menampilkan picture pada page profile
+
+    Todo:
+
+    1.  components/Profile.jsx
+        - pasang default enpoint
+        - import dan pasang defaultImage
+        - buat kondisi jika gambar ada dan tidak ada pda database
+    2.  buat file pada assets/images/profile-default.jpg
