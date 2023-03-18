@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Dashboard from './Profile'
 
 const Navbar = () => {
   // hooks isLoggedIn
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState(null)
+  const navigate = useNavigate()
 
   //   useEffect untuk mengechek jikasudah login apa belum
   useEffect(() => {
@@ -19,16 +21,13 @@ const Navbar = () => {
 
   const handleLogout = (e) => {
     e.preventDefault()
-    setUser(null)
-    setIsLoggedIn(false)
     localStorage.removeItem('token')
     localStorage.removeItem('user')
-    localStorage.removeItem('email')
-    localStorage.removeItem('gender')
-    localStorage.removeItem('address')
-    localStorage.removeItem('city')
+
+    setIsLoggedIn(false)
+    alert('Anda telah logout!')
     navigate('/')
-    setUser(null)
+    // setUser(null)
   }
   return (
     <div>

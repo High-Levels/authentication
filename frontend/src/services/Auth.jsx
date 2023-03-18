@@ -6,18 +6,15 @@ const login = async (username, password) => {
       username,
       password,
     })
-    const { user, token, email, gender, address, city } = res.data.Data
+    const { user, token } = res.data.Data
 
     localStorage.setItem('token', token)
     localStorage.setItem('user', JSON.stringify(user.username))
-    localStorage.setItem('email', JSON.stringify(user.email))
-    localStorage.setItem('gender', JSON.stringify(user.gender))
-    localStorage.setItem('address', JSON.stringify(user.address))
-    localStorage.setItem('city', JSON.stringify(user.city))
+
     // console.log(res)
     // alert('Login Success')
 
-    return { user, token, email, gender, address, city }
+    return { user, token }
   } catch (error) {
     console.log(error)
     alert('Login failed')

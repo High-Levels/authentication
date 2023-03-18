@@ -4,7 +4,7 @@
 
     Todo:
 
-    1.  cmponents/Navbar.jsx
+    1.  components/Navbar.jsx
     2.  auth/Login.jsx
         - hooks deklaration
         - buat dan pasam handleSubmit
@@ -20,7 +20,7 @@
 
     Todo:
 
-    1.  cmponents/Navbar.jsx
+    1.  components/Navbar.jsx
         - import dan pasang hooks isLoggedIn pada button login, register dan logout
         - useEffect untuk mengechek jikasudah login apa belum
     2.  auth/Login.jsx
@@ -36,5 +36,18 @@
 
     Todo:
 
-    1.  cmponents/Navbar.jsx
+    1.  components/Navbar.jsx
         - pasang handleLogout
+
+## Profile Page
+
+    Todo:
+
+    1.  components/Profile.jsx
+        - hooks profile
+        - useEffect menampilkan data profile
+        - pasang token yang login
+    2.  components/Navbar.jsx
+        - import  dan pasang useNavigate()
+    3.  services/Auth.jsx
+        - menyederhanakan data yang tanpil pada localstorage()
